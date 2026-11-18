@@ -1,0 +1,40 @@
+schema: intent-driven
+
+# context: |
+#   Product: <what the product is and who uses it>
+#   Domain: <the business domain, its key records, and what counts as sensitive>
+#   Stack: <languages, frameworks, storage, and platform>
+#   Tooling: <test, lint, format, and typecheck commands>
+#
+#   Agents: Route source implementation to the senior-dev subagent and
+#   acceptance-test work to senior-qa. Do not batch their tasks; call them as
+#   often as needed in smaller batches because development and test work may
+#   interleave.
+#
+#   Acceptance tests: spec-as-source with the javascript stack (cucumber-js).
+#
+# stack: javascript      # javascript | python - required only for spec-as-source
+
+rules:
+  proposal:
+    - Must use grill-with-docs skill
+    # - Must use adversarial-authoring skill
+    # - Must use glossary skill
+  design:
+    - Must use c4-diagrams skill
+    # - Must use glossary skill
+  adr:
+    - Must use architectural-decision-records skill
+  # Enable executable specs by uncommenting both blocks and recording `stack:`.
+  # specs:
+  #   - Must use spec-as-source skill
+  # tasks:
+  #   - Must use spec-as-source skill
+
+operations:
+  apply:
+    guidance:
+      - Must use test-driven-development skill
+  archive:
+    guidance:
+      - Must run OpenSpec Sync before archiving

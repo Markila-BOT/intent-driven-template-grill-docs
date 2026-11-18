@@ -1,0 +1,32 @@
+---
+description: Follow the OpenSpec schema declared in openspec/config.yaml
+alwaysApply: true
+---
+
+# OpenSpec schema
+
+Before creating a change, writing an artifact, applying tasks, or archiving, read `schema`, `rules`, and `operations` from `openspec/config.yaml`.
+
+Pass that `schema` value with `--schema` when creating a change. If `schema` is missing, stop. Do not use the CLI default.
+
+Request `openspec instructions` for the change schema before each artifact, before apply, and before archive. Follow the returned rules and operation guidance.
+
+If a required skill is missing, stop and report its name. Do not write the artifact.
+
+## Skill resolution
+
+Resolve a skill name to the first file that exists:
+
+1. `.agents/skills/<name>/SKILL.md`
+2. `.opencode/skills/<name>/SKILL.md`
+3. the tool's global skills directory, for example `~/.agents/skills/<name>/SKILL.md`
+
+## Proposal skills
+
+`grill-with-docs` loads `grilling` (the interview) and `domain-modeling` (the writing). Both must be present.
+
+## Where the documents go
+
+- Glossary terms: `glossary/business.md` or `glossary/technical.md`.
+- Durable decisions: `adr/NNNN-kebab-title.md`. Accepted ADRs are immutable; supersede rather than edit.
+- Artifact glossary companions: `<artifact>-glossary-reference.md` beside the artifact.
